@@ -1,5 +1,7 @@
+mod server;
+
+use crate::server::run_server;
 use log::error;
-use quote_server::run_server;
 
 const DEFAULT_SERVER_ADDR: &str = "127.0.0.1:7878";
 

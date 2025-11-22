@@ -4,7 +4,7 @@ use std::net::{TcpStream, UdpSocket};
 use std::path::Path;
 use std::time::Duration;
 
-use crate::protocol::parse_command;
+use quote_core::parse_command;
 
 const TCP_READ_TIMEOUT: Duration = Duration::from_secs(3);
 const UDP_READ_TIMEOUT: Duration = Duration::from_millis(500);

@@ -8,9 +8,7 @@ use std::time::{Duration, Instant};
 use crossbeam_channel::{Receiver, RecvTimeoutError, Sender, unbounded};
 use log::{error, info, warn};
 
-use crate::generator::QuoteGenerator;
-use crate::protocol::{StreamRequest, parse_command};
-use crate::quote::StockQuote;
+use quote_core::{QuoteGenerator, StockQuote, StreamRequest, parse_command};
 
 const GENERATE_INTERVAL: Duration = Duration::from_millis(200);
 const STREAM_TIMEOUT: Duration = Duration::from_secs(5);

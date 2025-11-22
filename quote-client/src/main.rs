@@ -1,3 +1,5 @@
+mod client;
+
 use std::collections::HashSet;
 use std::net::SocketAddr;
 use std::sync::{
@@ -8,10 +10,10 @@ use std::sync::{
 use std::thread;
 use std::time::Duration;
 
+use crate::client::{bind_udp, build_command, load_tickers, send_command};
 use clap::Parser;
 use log::{error, info, warn};
-use quote_server::StockQuote;
-use quote_server::client::{bind_udp, build_command, load_tickers, send_command};
+use quote_core::StockQuote;
 
 const DEFAULT_SERVER_ADDR: &str = "127.0.0.1:7878";
 const DEFAULT_UDP_HOST: &str = "127.0.0.1";

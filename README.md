@@ -1,12 +1,22 @@
-# Quote Server and Client
+# Ticker Streaming Workspace
+
+## Структура
+```
+ticker-streaming/
+├── Cargo.toml          # workspace
+├── quote-core/         # общая библиотека (протокол, котировки, генератор)
+├── server/             # бинарь сервера
+├── client/             # бинарь клиента
+└── README.md
+```
 
 ## Сборка и тесты
-- `cargo fmt`
-- `cargo test`
-- `cargo build`
+- `cargo fmt --all`
+- `cargo test --all`
+- `cargo build --all`
 
 ## Запуск сервера
-- `cargo run --bin server`  
+- `cargo run -p quote-server --bin server`  
   Слушает TCP `127.0.0.1:7878` и ждёт команд вида `STREAM udp://<ip>:<port> <T1,T2>`.
 
 ## Запуск клиента
@@ -17,7 +27,7 @@
   ```
 - Запустите:
   ```
-  cargo run --bin client -- --server-addr 127.0.0.1:7878 --udp-host 127.0.0.1 --udp-port 34254 --tickers-file tickers.txt
+  cargo run -p quote-client --bin client -- --server-addr 127.0.0.1:7878 --udp-host 127.0.0.1 --udp-port 34254 --tickers-file tickers.txt
   ```
 - Флаги:
   - `--server-addr` — адрес TCP сервера.
